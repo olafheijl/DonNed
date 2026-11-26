@@ -1,7 +1,0 @@
----
-interface Props { steps: readonly string[]; }
-const { steps } = Astro.props;
----
-<ol class="pipeline" style={`--steps:${steps.length}`}>
-  {steps.map((step, index) => <li><span class="step-index">{String(index + 1).padStart(2, '0')}</span><h3>{step}</h3><p>[Beschrijving processtap]</p></li>)}
-</ol>
