@@ -14,6 +14,12 @@ npm run build
 
 De productiebuild staat in `dist/`. Gebruik `npm run preview` om die lokaal te bekijken.
 
+## Delen via hetzelfde wifi-netwerk
+
+Voer op je eigen computer, vanuit de DonNed-map, `npm run dev:lan` uit. Deel het adres onder **Network** in de terminal dat bij je wifi-interface hoort, inclusief de poort. Je collega opent dit adres terwijl de server draait en jullie met hetzelfde wifi-netwerk verbonden zijn.
+
+Als Astro meldt dat er al een ontwikkelserver draait, stop die dan eerst met `npm run dev -- stop` en start daarna `npm run dev:lan`. Als het adres onbereikbaar blijft, controleer dan of je firewall verbindingen op de getoonde poort toestaat voor het privénetwerk en of het wifi-netwerk apparaten onderling laat verbinden.
+
 ## Structuur
 
 - `src/pages/` bevat de homepage, statische routes en artikeldetails.

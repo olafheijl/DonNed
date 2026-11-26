@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "dev:lan": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
