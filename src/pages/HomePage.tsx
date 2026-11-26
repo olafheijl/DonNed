@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import PartnerCarousel from '../components/PartnerCarousel';
 import HomePageHero from '../components/HomePageHero';
 import PageSection from '../components/PageSection';
@@ -10,8 +11,28 @@ import BrandLogo from '../components/BrandLogo';
 import { ui, sections, pipeline, audiences, homepagePartners } from '../content';
 
 export default function HomePage() {
+  const home = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!home.current || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const { isIntersecting, target } of entries) {
+        if (!isIntersecting) continue;
+        observer.unobserve(target);
+        if (!target.matches(':focus-within')) target.classList.add('section-arrived');
+      }
+    }, { threshold: 0.08 });
+
+    for (const content of home.current.querySelectorAll(':scope > section:not(.home-hero) > .shell')) {
+      if (content.getBoundingClientRect().top >= window.innerHeight) observer.observe(content);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <>
+    <div ref={home}>
       <HomePageHero />
       <section className="partner-strip">
         <div className="shell">
@@ -141,6 +162,6 @@ export default function HomePage() {
         </div>
       </PageSection>
       <ContactCallout />
-    </>
+    </div>
   );
 }
