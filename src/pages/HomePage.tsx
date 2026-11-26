@@ -1,3 +1,4 @@
+import PartnerCarousel from '../components/PartnerCarousel';
 import HomePageHero from '../components/HomePageHero';
 import PageSection from '../components/PageSection';
 import VisualPlaceholder from '../components/VisualPlaceholder';
@@ -6,7 +7,7 @@ import ModelPipeline from '../components/ModelPipeline';
 import ArticlePreviewGrid from '../components/ArticlePreviewGrid';
 import ContactCallout from '../components/ContactCallout';
 import BrandLogo from '../components/BrandLogo';
-import { ui, sections, pipeline, audiences } from '../content';
+import { ui, sections, pipeline, audiences, homepagePartners } from '../content';
 
 export default function HomePage() {
   return (
@@ -20,11 +21,7 @@ export default function HomePage() {
               Bekijk samenwerkingen <span aria-hidden="true">→</span>
             </a>
           </header>
-          <ul className="partner-grid">
-            {Array.from({ length: 5 }, (_, index) => (
-              <li key={index}>[Logo samenwerkingspartner]</li>
-            ))}
-          </ul>
+          <PartnerCarousel partners={homepagePartners} />
         </div>
       </section>
       <PageSection title={sections.challenge} tone="mist">

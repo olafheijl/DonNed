@@ -1,0 +1,95 @@
+.partner-carousel {
+  --logo-gap: 0.75rem;
+  --visible-logos: 5;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.partner-carousel:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 0.2rem;
+}
+
+.partner-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% + var(--logo-gap)) / var(--visible-logos) - var(--logo-gap));
+  align-items: stretch;
+  gap: var(--logo-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: var(--partner-motion, none) calc(5s * var(--partner-count)) linear infinite paused;
+}
+
+.partner-carousel[data-in-view='true'] .partner-track {
+  animation-play-state: running;
+}
+
+.partner-carousel:hover .partner-track,
+.partner-carousel:focus-within .partner-track {
+  animation-play-state: paused;
+}
+
+.partner-logo {
+  display: grid;
+  place-items: center;
+  min-block-size: clamp(4.5rem, 8vw, 6rem);
+  padding: 0.65rem clamp(0.5rem, 1.5vw, 1rem);
+  border-block: 1px solid var(--rule);
+}
+
+.partner-logo img {
+  display: block;
+  width: 100%;
+  height: clamp(2.75rem, 5vw, 3.75rem);
+  object-fit: contain;
+}
+
+.partner-logo-copy {
+  display: var(--partner-copy, none);
+}
+
+@keyframes partner-slide {
+  to {
+    transform: translateX(calc(-1 * (100% + var(--logo-gap)) / var(--visible-logos) * var(--partner-count)));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @media (width > 47.5rem) {
+    .partner-carousel[data-scroll-desktop='true'] {
+      --partner-motion: partner-slide;
+      --partner-copy: grid;
+      overflow-x: clip;
+    }
+  }
+
+  @media (30rem < width <= 47.5rem) {
+    .partner-carousel[data-scroll-tablet='true'] {
+      --partner-motion: partner-slide;
+      --partner-copy: grid;
+      overflow-x: clip;
+    }
+  }
+
+  @media (width <= 30rem) {
+    .partner-carousel[data-scroll-mobile='true'] {
+      --partner-motion: partner-slide;
+      --partner-copy: grid;
+      overflow-x: clip;
+    }
+  }
+}
+
+@media (width <= 47.5rem) {
+  .partner-carousel {
+    --visible-logos: 3;
+  }
+}
+
+@media (width <= 30rem) {
+  .partner-carousel {
+    --visible-logos: 2;
+  }
+}

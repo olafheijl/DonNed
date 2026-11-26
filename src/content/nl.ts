@@ -67,3 +67,14 @@ export const publications = [{
 
 // Set this to '/beelden/fundus.jpg' after adding the photo to public/beelden.
 export const homeFundusImage: string = '/beelden/Rechts Centraal.png';
+
+export const homepagePartners = [
+  { name: 'LUMC', logo: 'LUMC.webp' },
+  { name: 'Alrijne', logo: 'alrijne.png' },
+  { name: 'Amsterdam UMC', logo: 'amsterdam umc.png' },
+  { name: 'Erasmus MC', logo: 'erasmus mc.png' },
+  { name: 'Hogeschool Rotterdam', logo: 'hogeschool rotterdam.png' },
+  { name: 'Hogeschool Utrecht', logo: 'hogeschool utrecht.png' },
+  { name: 'Het Oogziekenhuis Rotterdam', logo: 'oog ziekenhuis rotterdam.png' },
+  { name: 'Star-shl', logo: 'star shl.jpg' },
+];
