@@ -17,14 +17,16 @@ export default function HomePageHero() {
           </p>
         </div>
         {homeFundusImage ? (
-          <img
-            className="home-hero-photo"
-            src={homeFundusImage}
-            alt="Fundusfoto van het netvlies"
-            width={502}
-            height={497}
-            fetchPriority="high"
-          />
+          <div className="home-hero-photo-layer">
+            <img
+              className="home-hero-photo"
+              src={homeFundusImage}
+              alt="Fundusfoto van het netvlies"
+              width={502}
+              height={497}
+              fetchPriority="high"
+            />
+          </div>
         ) : (
           <VisualPlaceholder label="[Afbeelding netvliesanalyse]" kind="retina" />
         )}
