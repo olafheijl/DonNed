@@ -5,6 +5,7 @@ interface Props {
   intro?: string;
   id?: string;
   tone?: 'white' | 'mist' | 'dark';
+  hideTitle?: boolean;
 }
 
 export default function PageSection({
@@ -13,12 +14,13 @@ export default function PageSection({
   intro,
   id,
   tone = 'white',
+  hideTitle = false,
 }: Props) {
   return (
     <section id={id} className={`section ${tone}`}>
       <div className="shell">
-        <header className="section-heading">
-          <h2>{title}</h2>
+        <header className={!hideTitle || intro ? "section-heading" : undefined}>
+          <h2 className={hideTitle ? 'visually-hidden' : undefined}>{title}</h2>
           {intro && <p>{intro}</p>}
         </header>
         {children}

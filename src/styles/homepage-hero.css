@@ -57,17 +57,10 @@
   z-index: 1;
 }
 
-.home-hero-photo-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  mask-image: linear-gradient(to bottom, transparent, black 13%, black 87%, transparent);
-}
-
 .home-hero-photo {
   position: absolute;
   inset-block-start: 50%;
-  inset-inline-start: 70%;
+  inset-inline-start: 60%;
   width: clamp(36rem, 56vw, 84rem);
   height: auto;
   transform: translateY(-50%);

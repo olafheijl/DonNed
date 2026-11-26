@@ -28,7 +28,7 @@ export default function HomePage() {
         <div className="split">
           <div>
             <p className="lead">
-              [Beschrijving maatschappelijke zorguitdaging]
+              Goed kunnen zien maakt verschil bij lezen, werken en zelfstandig reizen. Tegelijk kunnen sommige oogafwijkingen zich ontwikkelen voordat iemand merkt dat het zicht achteruitgaat. De maatschappelijke uitdaging is om oogzorg op tijd beschikbaar te maken voor mensen die haar nodig hebben, van screening tot een eerste afspraak en zo nodig verdere behandeling.
             </p>
             <dl className="compact-stats">
               {[
@@ -67,7 +67,7 @@ export default function HomePage() {
             kind="architecture"
           />
           <div>
-            <p className="lead">[Beschrijving AI-model]</p>
+            <p className="lead">We ontwikkelen AI-modellen die patronen in netvliesbeelden leren herkennen. Bij de ontwikkeling besteden we aandacht aan de kwaliteit van de beelden, de annotaties waarmee het model leert en de evaluatie op beelden die het tijdens de training nog niet heeft gezien.</p>
             <a className="text-link" href="/ai-technologie/">
               {ui.technology} <span aria-hidden="true">→</span>
             </a>
@@ -75,19 +75,21 @@ export default function HomePage() {
         </div>
         <ModelPipeline steps={pipeline} />
       </PageSection>
-      <PageSection title="RetScan" tone="mist">
-        <div className="split">
-          <div>
+      <PageSection title="RetScan" tone="mist" hideTitle>
+        <div className='split'>
+          <div className="retscan-intro">
             <BrandLogo product />
-            <p className="lead">[Beschrijving RetScan]</p>
+            <p className="lead">RetScan is de medische AI-technologie van DonNed voor oogscreening. De technologie analyseert netvliesfoto’s met als doel zorgverleners te ondersteunen bij het herkennen van beelden die verdere beoordeling vragen.</p>
             <a className="button primary" href="/retscan/">
               {ui.discover}
               <span aria-hidden="true">→</span>
             </a>
           </div>
-          <VisualPlaceholder
-            label="[Visualisatie netvliesanalyse]"
-            kind="retina"
+          <img
+            className="retscan-figure"
+            src="/beelden/Fundus analyse.png"
+            alt="Visualisatie van RetScan"
+            loading="lazy"
           />
         </div>
       </PageSection>

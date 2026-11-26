@@ -28,7 +28,6 @@ export const sections = {
   news: 'Nieuws & inzichten',
 };
 
-export const pipeline = ['Trainingsdatasets', 'Data-annotatie', 'Beeldvoorbewerking', 'Modeltraining', 'Modelevaluatie', 'Modelverbetering'];
 export const audiences = ['Huisartsen en zorggroepen', 'Diagnostische centra', 'Oogzorginstellingen', 'Onderzoeks- en innovatiepartners'];
 export const partnerGroups = [
   ['Wetenschappelijke samenwerkingen', ['Academische onderzoekspartners', 'Universitair medische centra', 'Klinische onderzoekspartners']],
@@ -77,4 +76,31 @@ export const homepagePartners = [
   { name: 'Hogeschool Utrecht', logo: 'hogeschool utrecht.png' },
   { name: 'Het Oogziekenhuis Rotterdam', logo: 'oog ziekenhuis rotterdam.png' },
   { name: 'Star-shl', logo: 'star shl.jpg' },
+];
+
+export const pipeline = [
+  {
+    title: 'Trainingsdatasets',
+    description: 'Selecteer netvliesbeelden die passen bij de taak waarvoor het model wordt ontwikkeld.',
+  },
+  {
+    title: 'Data-annotatie',
+    description: 'Leg per beeld vast welke kenmerken of bevindingen als voorbeeld dienen voor het model.',
+  },
+  {
+    title: 'Beeldvoorbewerking',
+    description: 'Controleer de beeldkwaliteit en bereid de foto’s op een consistente manier voor.',
+  },
+  {
+    title: 'Modeltraining',
+    description: 'Laat het model aan de hand van voorbeelden leren welke patronen relevant zijn voor de taak.',
+  },
+  {
+    title: 'Modelevaluatie',
+    description: 'Toets het model op beelden die het tijdens de training nog niet heeft gezien.',
+  },
+  {
+    title: 'Modelverbetering',
+    description: 'Bekijk waar het model fouten maakt en gebruik die inzichten voor de volgende ontwikkelronde.',
+  },
 ];
