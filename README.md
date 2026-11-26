@@ -1,31 +1,34 @@
 # DonNed
 
-Nederlandstalig, statisch websiteprototype voor Digitaal Oognetwerk Nederland en RetScan.
+Nederlandstalig websiteprototype voor Digitaal Oognetwerk Nederland en RetScan, gebouwd met React, TypeScript en Vite.
 
 ## Lokaal starten
 
-Gebruik Node.js 24 en npm.
+Gebruik Node.js 24 en npm. Voer vanuit de hoofdmap van het project uit:
 
 ```sh
 npm ci
 npm run dev
-npm run build
 ```
 
-De productiebuild staat in `dist/`. Gebruik `npm run preview` om die lokaal te bekijken.
+Met `npm run build` maak je de statische site in `dist/`. Gebruik `npm run preview` om die build lokaal te bekijken. Configureer je hosting om `404.html` te tonen bij een onbekend adres.
 
 ## Delen via hetzelfde wifi-netwerk
 
-Voer op je eigen computer, vanuit de DonNed-map, `npm run dev:lan` uit. Deel het adres onder **Network** in de terminal dat bij je wifi-interface hoort, inclusief de poort. Je collega opent dit adres terwijl de server draait en jullie met hetzelfde wifi-netwerk verbonden zijn.
+Start op je eigen computer `npm run dev:lan` en deel het adres onder **Network** dat bij je wifi-interface hoort, inclusief de poort. Laat de server draaien terwijl je collega de site bekijkt. Stop een lopende Vite-server met Ctrl+C in zijn terminal.
 
-Als Astro meldt dat er al een ontwikkelserver draait, stop die dan eerst met `npm run dev -- stop` en start daarna `npm run dev:lan`. Als het adres onbereikbaar blijft, controleer dan of je firewall verbindingen op de getoonde poort toestaat voor het privénetwerk en of het wifi-netwerk apparaten onderling laat verbinden.
+## Wat staat waar?
 
-## Structuur
+- `src/pages/HomePage.tsx` bevat de homepage. De andere bestanden in `src/pages/` heten naar hun pagina, bijvoorbeeld `RetScanPage.tsx` en `ResearchPage.tsx`.
+- `src/components/` bevat gedeelde onderdelen zoals `HeroSection.tsx`, `BrandLogo.tsx`, `SiteHeader.tsx` en `ContactForm.tsx`.
+- `src/routes.tsx` koppelt pagina’s aan URL’s.
+- `src/content/nl.ts` bevat de Nederlandse navigatie en gedeelde voorbeeldcontent. `src/content/index.ts` kiest de taalmodule. `src/content/entrySchemas.ts` en `src/entries/` bereiden toekomstige redactionele invoer voor.
+- `src/styles/base.css` bevat kleuren en typografie, `layout.css` de gedeelde pagina-indeling en `components.css` de stijlen van onderdelen.
 
-- `src/pages/` bevat de homepage, statische routes en artikeldetails.
-- `src/components/` bevat herbruikbare onderdelen voor onder meer beeld, onderzoek, modelontwikkeling en contact.
-- `src/styles/site.css` bevat het kleurenpalet, de typografie en responsieve stijlen.
-- `src/content/nl.ts` bevat de Nederlandse navigatie en centrale voorbeeldcontent. De taalmodule loopt via `src/content/index.ts`. Voeg voor een volgende taal een eigen module en gelokaliseerde routes toe en registreer de taal in `astro.config.mjs`.
-- `src/content.config.ts` definieert schema's voor toekomstige Markdown-content in `src/entries/`. De huidige routes renderen uitsluitend voorbeeldvelden. Sluit de collecties bij de eerste redactionele invoer aan op de pagina's.
+## Afbeeldingen vervangen
 
-Plaats de originele bestanden `Logo DONNED@4x-100.webp` en `logo retscan.webp` in `public/merken/` en bouw opnieuw. Tot dan gebruikt de site tekstlabels als plaatsaanduiding. Het contactformulier valideert lokaal en doet geen netwerkverzoek.
+De logo’s staan in `public/merken/`. De bestandsnamen staan in `src/components/BrandLogo.tsx`. In `src/styles/components.css` pas je de grootte aan bij `.brand-img` en `.brand-img--retscan`.
+
+Plaats de fundusfoto voor de homepage in `public/beelden/`, bijvoorbeeld als `fundus.jpg`. Zet daarna `homeFundusImage` onderaan `src/content/nl.ts` op `'/beelden/fundus.jpg'`. Met een lege waarde toont de hero de bestaande getekende visualisatie. De maat van de foto staat bij `.hero-photo` in `src/styles/components.css`.
+
+Het contactformulier valideert lokaal en doet geen netwerkverzoek.

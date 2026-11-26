@@ -64,3 +64,6 @@ export const publications = [{
   journal: '[Tijdschrift]', doi: '[DOI]', sourceLabel: '[Externe publicatielink]',
   downloadLabel: '[Downloadbare publicatie]', sourceUrl: '', downloadUrl: '',
 }];
+
+// Set this to '/beelden/fundus.jpg' after adding the photo to public/beelden.
+export const homeFundusImage: string = '';
