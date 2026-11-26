@@ -35,7 +35,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
 .brand-name { font-size: 1.8rem; white-space: nowrap; }
 .brand-name span { color: var(--petrol); }
-.brand-img { width: auto; max-width: 140px; height: auto; max-height: 46px; object-fit: contain; }
+.brand-img { width: auto; max-width: 180px; height: auto; max-height: 56px; object-fit: contain; }
+.brand-img--retscan { height: 200px; max-width: 500px; }
 .site-header nav { display: flex; align-items: center; gap: clamp(.75rem, 1.55vw, 1.65rem); }
 .site-header nav a { position: relative; font-size: .82rem; font-weight: 650; white-space: nowrap; }
 .site-header nav a:hover, .site-header nav a.active:not(.nav-contact) { color: var(--teal); }
@@ -157,4 +158,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+.hero-photo {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  justify-self: center;
 }

@@ -2,11 +2,11 @@
 import Visual from './Visual.astro';
 import Brand from './Brand.astro';
 import { ui } from '../content';
-interface Props { title: string; intro: string; visual?: string; home?: boolean; product?: boolean; kind?: 'retina' | 'architecture' | 'graph' | 'frame' }
-const { title, intro, visual, home = false, product = false, kind = 'frame' } = Astro.props;
+interface Props { title: string; intro: string; visual?: string; home?: boolean; product?: boolean; kind?: 'retina' | 'architecture' | 'graph' | 'frame'; image?: string }
+const { title, intro, visual, image, home = false, product = false, kind = 'frame' } = Astro.props;
 ---
 <section class:list={['hero', { 'home-hero': home }]}>
-  <div class:list={['shell hero-inner', { split: !!visual }]}>
+  <div class:list={['shell hero-inner', { split: !!(visual || image)}]}>
     <div>
       {home && <div class="hero-topic"><span aria-hidden="true"></span> Onderzoek · Medische AI · Klinische validatie</div>}
       {product && <Brand product />}
@@ -14,9 +14,12 @@ const { title, intro, visual, home = false, product = false, kind = 'frame' } = 
       <p>{intro}</p>
       {(home || product) && <div class="actions">
         <a class="button primary" href="/contact/">{ui.meet}<span aria-hidden="true">→</span></a>
-        {home && <a class="button secondary" href="/retscan/">{ui.discover}<span aria-hidden="true">→</span></a>}
+        {home && <a class="button secondary" href="/retscan/">{ui.discover}<span aria-hidden="true">→</span></a>}  
       </div>}
     </div>
-    {visual && <Visual label={visual} kind={kind}/>}
+    {image ? (
+      <img class="hero-photo" src={image} alt="Fundusfoto van het netvlies" />
+    ) : visual && <Visual label={visual} kind={kind}/>}
   </div>
+  
 </section>

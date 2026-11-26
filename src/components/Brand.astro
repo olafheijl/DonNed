@@ -6,5 +6,5 @@ const label = product ? 'RetScan' : 'DonNed';
 const available = existsSync('public/merken/' + file);
 ---
 {available ?
-  <img class="brand-img" src={`/merken/${encodeURIComponent(file)}`} alt={label} width="140" height="46"/> :
+  <img class=class:list={['brand-img', { 'brand-img--retscan': product }]} src={`/merken/${encodeURIComponent(file)}`} alt={label} width="140" height="46"/> :
   <span class="brand-name">{label}<span aria-hidden="true">.</span></span>}
