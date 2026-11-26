@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function BrandLogo({ product = false }: { product?: boolean }) {
   const [failed, setFailed] = useState(false);
-  const file = product ? 'logo retscan.jpg' : 'Logo DONNED.jpg';
+  const file = product ? 'Logo retscan.png' : 'Logo DONNED.png';
   const label = product ? 'RetScan' : 'DonNed';
 
   return failed ? (
