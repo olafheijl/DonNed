@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Website voor Digitaal OogNetwerk Nederland",
   "scripts": {
-    "dev": "astro",
+    "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview"
   },
@@ -26,6 +26,7 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@types/node": "^24.19.4"
+    "@types/node": "^24.19.4",
+    "cross-env": "^10.1.0"
   }
 }
