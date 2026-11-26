@@ -29,6 +29,6 @@ Start op je eigen computer `npm run dev:lan` en deel het adres onder **Network**
 
 De logo’s staan in `public/merken/`. De bestandsnamen staan in `src/components/BrandLogo.tsx`. In `src/styles/components.css` pas je de grootte aan bij `.brand-img` en `.brand-img--retscan`.
 
-Plaats de fundusfoto voor de homepage in `public/beelden/`, bijvoorbeeld als `fundus.jpg`. Zet daarna `homeFundusImage` onderaan `src/content/nl.ts` op `'/beelden/fundus.jpg'`. Met een lege waarde toont de hero de bestaande getekende visualisatie. De maat van de foto staat bij `.hero-photo` in `src/styles/components.css`.
+Plaats de fundusfoto voor de homepage in `public/beelden/`, bijvoorbeeld als `fundus.jpg`. Zet daarna `homeFundusImage` onderaan `src/content/nl.ts` op `'/beelden/fundus.jpg'`. Met een lege waarde toont de hero de bestaande getekende visualisatie. De maat van de foto staat bij `.home-hero-photo` in `src/styles/homepage-hero.css`.
 
 Het contactformulier valideert lokaal en doet geen netwerkverzoek.

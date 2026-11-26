@@ -1,4 +1,4 @@
-import HeroSection from '../components/HeroSection';
+import HomePageHero from '../components/HomePageHero';
 import PageSection from '../components/PageSection';
 import VisualPlaceholder from '../components/VisualPlaceholder';
 import ResearchMetrics from '../components/ResearchMetrics';
@@ -7,19 +7,11 @@ import ArticlePreviewGrid from '../components/ArticlePreviewGrid';
 import ContactCallout from '../components/ContactCallout';
 import BrandLogo from '../components/BrandLogo';
 import { ui, sections, pipeline, audiences } from '../content';
-import { homeFundusImage } from '../content';
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection
-        home
-        title="[Hoofdtitel]"
-        intro="[Introductietekst DonNed]"
-        visual="[Afbeelding netvliesanalyse]"
-        kind="retina"
-        image={homeFundusImage || undefined}
-      />
+      <HomePageHero />
       <section className="partner-strip">
         <div className="shell">
           <header className="strip-heading">
