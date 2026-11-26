@@ -6,8 +6,8 @@ export default function HomePageHero() {
     <section className="home-hero">
       <div className="shell home-hero-layout">
         <div className="home-hero-copy">
-          <h1>[Hoofdtitel]</h1>
-          <p>[Introductietekst DonNed]</p>
+          <h1>Medische AI voor netvliesanalyse</h1>
+          <p>Bij DonNed onderzoeken, ontwikkelen en valideren we AI-modellen die netvliesbeelden analyseren. Met RetScan brengen we dat onderzoek samen in technologie voor oogscreening.</p>
           <div className="actions">
             <a className="button primary" href="/contact/">{ui.meet}</a>
             <a className="text-link" href="/retscan/">{ui.discover}</a>
