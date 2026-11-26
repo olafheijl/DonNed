@@ -1,0 +1,21 @@
+---
+import Site from '../../layouts/Site.astro';
+import Section from '../../components/Section.astro';
+import Visual from '../../components/Visual.astro';
+import ArticleGrid from '../../components/ArticleGrid.astro';
+import { articles } from '../../content';
+export function getStaticPaths() {
+  return articles.map(article => ({ params: { artikel: article.slug }, props: { article } }));
+}
+const { article } = Astro.props;
+---
+<Site title={article.title} description={article.summary}>
+  <article class="section shell story">
+    <a class="text-link" href="/nieuws-inzichten/">← Naar nieuws & inzichten</a>
+    <p class="meta">{article.category} · {article.date}</p>
+    <h1>{article.title}</h1><p class="lead">{article.summary}</p>
+    <Visual label={article.image}/>
+    <p>{article.body}</p>
+  </article>
+  <Section title="Gerelateerde artikelen" tone="mist"><ArticleGrid items={articles.filter(item => item.slug !== article.slug)}/></Section>
+</Site>

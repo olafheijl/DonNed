@@ -1,0 +1,40 @@
+---
+interface Props { label: string; kind?: 'retina' | 'architecture' | 'graph' | 'frame'; }
+const { label, kind = 'frame' } = Astro.props;
+const branches = [
+  'M250 205 Q214 158 180 145 T95 101 M189 150 Q158 108 141 72 M150 131 Q110 141 73 125',
+  'M250 205 Q235 256 189 277 T109 321 M211 264 Q176 248 126 250 M172 287 Q161 320 145 345',
+  'M250 205 Q295 178 330 125 T381 79 M312 149 Q347 147 392 121 M327 128 Q329 99 317 70',
+  'M250 205 Q271 254 322 273 T396 324 M316 271 Q360 265 402 281 M342 284 Q354 315 345 344',
+  'M250 205 Q263 158 237 113 T226 60 M250 163 Q272 132 269 92 M250 205 Q204 197 170 205 T86 181',
+  'M250 205 Q287 211 333 198 T415 180 M347 194 Q372 211 403 220 M250 205 Q253 279 237 332',
+];
+---
+<figure class:list={['visual', kind]}>
+  {kind === 'retina' && <svg viewBox="0 0 500 410" aria-hidden="true">
+    <g fill="none" stroke="currentColor">
+      <circle cx="250" cy="205" r="157" opacity=".65"/>
+      <circle cx="250" cy="205" r="150" stroke-dasharray="1 4" opacity=".8"/>
+      <circle cx="250" cy="205" r="111" opacity=".24"/>
+      <circle cx="250" cy="205" r="70" opacity=".23"/>
+      <path d="M250 32v346M77 205h346" opacity=".22" stroke-dasharray="3 7"/>
+      {branches.map(d => <path d={d} stroke-width="1.2" opacity=".72"/>)}
+      <path class="scan" d="M101 205h298" stroke="#80e2d9" opacity=".7"/>
+      <circle cx="250" cy="205" r="13" stroke="#e89545"/>
+      <circle cx="250" cy="205" r="25" stroke="#e89545" opacity=".35"/>
+      <path d="M350 106h45l19-19h30M110 285H84l-20 20H38" opacity=".65"/>
+    </g>
+    <g fill="#e89545"><circle cx="250" cy="205" r="3"/><circle cx="350" cy="106" r="3"/><circle cx="110" cy="285" r="3"/></g>
+  </svg>}
+  {kind === 'architecture' && <svg viewBox="0 0 420 250" aria-hidden="true">
+    <g fill="none" stroke="currentColor">
+      <path d="M58 125h58m55 0h57m55 0h58M144 98V51h112v47m-112 54v47h112v-47" opacity=".65"/>
+      {[88, 200, 312].map(x => <rect x={x} y="98" width="55" height="54" rx="5" />)}
+      <circle cx="58" cy="125" r="7"/><circle cx="374" cy="125" r="7"/>
+      <circle cx="200" cy="51" r="8"/><circle cx="200" cy="199" r="8"/>
+    </g>
+  </svg>}
+  {kind === 'graph' && <svg viewBox="0 0 420 250" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M66 38v165h295M66 162h295M66 120h295M66 78h295" opacity=".5"/><rect x="142" y="74" width="141" height="100" rx="4" stroke-dasharray="5 6"/></g></svg>}
+  {kind === 'frame' && <span class="frame-mark" aria-hidden="true">◇</span>}
+  <figcaption>{label}</figcaption>
+</figure>

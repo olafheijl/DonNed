@@ -1,0 +1,6 @@
+---
+import { metrics } from '../content';
+---
+<dl class="metric-grid">
+  {metrics.map(label => <div><dt>{label}</dt><dd><strong>[Onderzoeksresultaat]</strong><span>[Betrouwbaarheidsinterval]</span><span>[Bronverwijzing]</span></dd></div>)}
+</dl>
