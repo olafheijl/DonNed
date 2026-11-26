@@ -66,4 +66,4 @@ export const publications = [{
 }];
 
 // Set this to '/beelden/fundus.jpg' after adding the photo to public/beelden.
-export const homeFundusImage: string = '';
+export const homeFundusImage: string = '/beelden/Rechts Centraal.png';
