@@ -1,3 +1,4 @@
+import Button from './Button';
 import VisualPlaceholder from './VisualPlaceholder';
 import BrandLogo from './BrandLogo';
 import { ui } from '../content';
@@ -31,10 +32,9 @@ export default function HeroSection({
           <p>{intro}</p>
           {product && (
             <div className="actions">
-              <a className="button primary" href="/contact/">
+              <Button href="/contact/">
                 {ui.meet}
-                <span aria-hidden="true">→</span>
-              </a>
+              </Button>
             </div>
           )}
         </div>

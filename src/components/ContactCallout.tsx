@@ -1,3 +1,4 @@
+import Button from './Button';
 import { ui } from '../content';
 
 export default function ContactCallout() {
@@ -8,10 +9,9 @@ export default function ContactCallout() {
           <h2>[Titel contact en samenwerking]</h2>
           <p>[Uitnodiging tot samenwerking]</p>
         </div>
-        <a className="button primary" href="/contact/">
+        <Button href="/contact/">
           {ui.meet}
-          <span aria-hidden="true">→</span>
-        </a>
+        </Button>
       </div>
     </section>
   );

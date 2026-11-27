@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import BrandLogo from './BrandLogo';
+import Button from './Button';
 import { navigation, ui } from '../content';
 
 export default function SiteHeader({ pathname }: { pathname: string }) {
@@ -38,8 +39,8 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
             height={507}
           />
         </a>
-        <button
-          className="button menu-toggle"
+        <Button
+          className="menu-toggle"
           ref={menuButton}
           type="button"
           aria-expanded={menuOpen}
@@ -47,24 +48,26 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span aria-hidden="true">☰</span> {ui.menu}
-        </button>
+        </Button>
         <nav id="hoofdnavigatie" aria-label={ui.mainNav}>
           {navigation.map(([path, label]) => {
             const active =
               path === '/' ? pathname === path : pathname.startsWith(path);
-            const classes = [
-              active ? 'active' : '',
-              path === '/contact/' ? 'button primary nav-contact' : '',
-            ]
-              .filter(Boolean)
-              .join(' ');
+            const linkProps = {
+              href: path,
+              'aria-current': pathname === path ? 'page' as const : undefined,
+              onClick: () => setMenuOpen(false),
+            };
+
+            if (path === '/contact/') {
+              return <Button key={path} className="nav-contact" {...linkProps}>{label}</Button>;
+            }
+
             return (
               <a
                 key={path}
-                href={path}
-                aria-current={pathname === path ? 'page' : undefined}
-                className={classes}
-                onClick={() => setMenuOpen(false)}
+                className={active ? 'active' : undefined}
+                {...linkProps}
               >
                 <span>{label}</span>
               </a>

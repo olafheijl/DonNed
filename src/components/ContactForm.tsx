@@ -1,3 +1,4 @@
+import Button from './Button';
 import { useEffect, useState, type FormEvent } from 'react';
 import { ui } from '../content';
 
@@ -96,9 +97,7 @@ export default function ContactForm() {
           Bekijk de privacyverklaring
         </a>
       </p>
-      <button type="submit" className="button primary" disabled={!ready}>
-        {ui.send} <span aria-hidden="true">→</span>
-      </button>
+      <Button type="submit" disabled={!ready}>{ui.send}</Button>
       <p role="status" className="form-status">
         {status}
       </p>

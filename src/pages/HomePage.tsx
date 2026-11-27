@@ -1,3 +1,4 @@
+import Button from '../components/Button';
 import { useEffect, useRef } from 'react';
 import PartnerCarousel from '../components/PartnerCarousel';
 import HomePageHero from '../components/HomePageHero';
@@ -76,10 +77,9 @@ export default function HomePage() {
         tone="dark"
       >
         <ResearchMetrics />
-        <a className="button secondary" href="/onderzoek-validatie/">
+        <Button variant="secondary" href="/onderzoek-validatie/">
           {ui.research}
-          <span aria-hidden="true">→</span>
-        </a>
+        </Button>
       </PageSection>
       <PageSection title={sections.ai}>
         <div className="split">
@@ -101,10 +101,9 @@ export default function HomePage() {
           <div className="retscan-intro">
             <BrandLogo product />
             <p className="lead">RetScan is de medische AI-technologie van DonNed voor oogscreening. De technologie analyseert netvliesfoto’s met als doel zorgverleners te ondersteunen bij het herkennen van beelden die verdere beoordeling vragen.</p>
-            <a className="button primary" href="/retscan/">
+            <Button href="/retscan/">
               {ui.discover}
-              <span aria-hidden="true">→</span>
-            </a>
+            </Button>
           </div>
           <img
             className="retscan-figure"

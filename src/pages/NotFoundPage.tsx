@@ -1,4 +1,4 @@
-import SiteLayout from '../layouts/SiteLayout';
+import Button from '../components/Button';
 
 export default function NotFoundPage() {
   return (
@@ -6,9 +6,9 @@ export default function NotFoundPage() {
       <section className="section shell">
         <h1>Pagina niet gevonden</h1>
         <p>Controleer het adres of ga terug naar de homepage.</p>
-        <a className="button primary" href="/">
-          Naar de homepage →
-        </a>
+        <Button href="/">
+          Naar de homepage
+        </Button>
       </section>
     </>
   );

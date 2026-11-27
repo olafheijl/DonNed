@@ -161,10 +161,35 @@
   transition: background-color 180ms ease, transform 180ms ease;
 }
 
+.button-label {
+  position: relative;
+  transition: transform 180ms ease;
+}
+
+.button-arrow {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: calc(100% + 0.3rem);
+  width: 0.9em;
+  height: 0.9em;
+  opacity: 0;
+  transform: translate(-0.35rem, -50%);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .button:not(:disabled):hover {
     background-color: color-mix(in srgb, var(--button-fill), black 8%);
     transform: translateY(-0.125rem);
+  }
+
+  .button:not(:disabled):hover .button-label {
+    transform: translateX(0.5rem);
+  }
+
+  .button:not(:disabled):hover .button-arrow {
+    opacity: 1;
+    transform: translate(0, -50%);
   }
 }
 
