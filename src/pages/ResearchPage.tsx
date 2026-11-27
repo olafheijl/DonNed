@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import VisualPlaceholder from '../components/VisualPlaceholder';
 import ContactCallout from '../components/ContactCallout';
 import ResearchMetrics from '../components/ResearchMetrics';
@@ -47,7 +48,7 @@ export default function ResearchPage() {
                 <dt>Bron</dt>
                 <dd>
                   {publication.sourceUrl ? (
-                    <a href={publication.sourceUrl}>
+                    <a href={siteUrl(publication.sourceUrl)}>
                       {publication.sourceLabel}
                     </a>
                   ) : (
@@ -59,7 +60,7 @@ export default function ResearchPage() {
                 <dt>Download</dt>
                 <dd>
                   {publication.downloadUrl ? (
-                    <a href={publication.downloadUrl}>
+                    <a href={siteUrl(publication.downloadUrl)}>
                       {publication.downloadLabel}
                     </a>
                   ) : (

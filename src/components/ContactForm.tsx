@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import Button from './Button';
 import { useEffect, useState, type FormEvent } from 'react';
 import { ui } from '../content';
@@ -93,7 +94,7 @@ export default function ContactForm() {
         </span>
       </label>
       <p>
-        <a className="text-link" href="/privacyverklaring/">
+        <a className="text-link" href={siteUrl('/privacyverklaring/')}>
           Bekijk de privacyverklaring
         </a>
       </p>

@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 
 interface Partner {
@@ -40,7 +41,7 @@ export default function PartnerCarousel({ partners }: { partners: readonly Partn
               className={duplicate ? 'partner-logo partner-logo-copy' : 'partner-logo'}
               aria-hidden={duplicate || undefined}
             >
-              <img src={`/merken/${encodeURIComponent(logo)}`} alt={duplicate ? '' : name} />
+              <img src={siteUrl(`/merken/${encodeURIComponent(logo)}`)} alt={duplicate ? '' : name} />
             </li>
           );
         })}

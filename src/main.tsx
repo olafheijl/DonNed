@@ -8,9 +8,10 @@ import './styles/homepage-hero.css';
 import './styles/partner-carousel.css';
 import App from './App';
 import { getRoute } from './routes';
+import { sitePath } from './sitePaths';
 import { locale } from './content';
 
-const pathname = window.location.pathname;
+const pathname = sitePath(window.location.pathname);
 const root = document.getElementById('root');
 if (!root) throw new Error('React root is missing');
 const app = <App pathname={pathname} />;

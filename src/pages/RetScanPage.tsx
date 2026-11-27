@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import ContactCallout from '../components/ContactCallout';
 import ImageComparison from '../components/ImageComparison';
 import ResearchMetrics from '../components/ResearchMetrics';
@@ -52,10 +53,10 @@ export default function RetScanPage() {
           <p>[Antwoord op veelgestelde vraag]</p>
         </details>
         <div className="actions">
-          <a className="text-link" href="/onderzoek-validatie/">
+          <a className="text-link" href={siteUrl('/onderzoek-validatie/')}>
             {ui.research} →
           </a>
-          <a className="text-link" href="/contact/">
+          <a className="text-link" href={siteUrl('/contact/')}>
             Vraag een demonstratie aan →
           </a>
         </div>

@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import Button from '../components/Button';
 import { useEffect, useRef } from 'react';
 import PartnerCarousel from '../components/PartnerCarousel';
@@ -61,7 +62,7 @@ export default function HomePage() {
         <div className="shell">
           <header className="strip-heading">
             <h2>{sections.partners}</h2>
-            <a className="text-link" href="/samenwerkingen/">
+            <a className="text-link" href={siteUrl('/samenwerkingen/')}>
               Bekijk samenwerkingen <span aria-hidden="true">→</span>
             </a>
           </header>
@@ -99,7 +100,7 @@ export default function HomePage() {
         tone="dark"
       >
         <ResearchMetrics />
-        <Button variant="secondary" href="/onderzoek-validatie/">
+        <Button variant="secondary" href={siteUrl('/onderzoek-validatie/')}>
           {ui.research}
         </Button>
       </PageSection>
@@ -111,7 +112,7 @@ export default function HomePage() {
           />
           <div>
             <p className="lead">We ontwikkelen AI-modellen die patronen in netvliesbeelden leren herkennen. Bij de ontwikkeling besteden we aandacht aan de kwaliteit van de beelden, de annotaties waarmee het model leert en de evaluatie op beelden die het tijdens de training nog niet heeft gezien.</p>
-            <a className="text-link" href="/ai-technologie/">
+            <a className="text-link" href={siteUrl('/ai-technologie/')}>
               {ui.technology} <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -123,13 +124,13 @@ export default function HomePage() {
           <div className="retscan-intro">
             <BrandLogo product />
             <p className="lead">RetScan is de medische AI-technologie van DonNed voor oogscreening. De technologie analyseert netvliesfoto’s met als doel zorgverleners te ondersteunen bij het herkennen van beelden die verdere beoordeling vragen.</p>
-            <Button href="/retscan/">
+            <Button href={siteUrl('/retscan/')}>
               {ui.discover}
             </Button>
           </div>
           <img
             className="retscan-figure"
-            src="/beelden/Fundus analyse.png"
+            src={siteUrl('/beelden/Fundus analyse.png')}
             alt="Visualisatie van RetScan"
             loading="lazy"
           />
@@ -145,7 +146,7 @@ export default function HomePage() {
               <VisualPlaceholder label="[Afbeelding doelgroep]" />
               <h3>{label}</h3>
               <p>[Beschrijving doelgroep]</p>
-              <a className="text-link" href="/samenwerkingen/#implementatie">
+              <a className="text-link" href={siteUrl('/samenwerkingen/#implementatie')}>
                 {ui.more} →
               </a>
             </article>
@@ -165,7 +166,7 @@ export default function HomePage() {
           <div>
             <h3>[Titel onderzoeksproject]</h3>
             <p>[Beschrijving onderzoeksproject]</p>
-            <a className="text-link" href="/onderzoek-validatie/#projecten">
+            <a className="text-link" href={siteUrl('/onderzoek-validatie/#projecten')}>
               {ui.research} →
             </a>
           </div>
@@ -174,10 +175,10 @@ export default function HomePage() {
       <PageSection title={sections.news}>
         <ArticlePreviewGrid />
         <div className="actions">
-          <a className="text-link" href="/nieuws-inzichten/">
+          <a className="text-link" href={siteUrl('/nieuws-inzichten/')}>
             Bekijk nieuws & inzichten →
           </a>
-          <a className="text-link" href="/onderzoek-validatie/#publicaties">
+          <a className="text-link" href={siteUrl('/onderzoek-validatie/#publicaties')}>
             {ui.publications} →
           </a>
         </div>

@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import Button from './Button';
 import { ui } from '../content';
 
@@ -9,7 +10,7 @@ export default function ContactCallout() {
           <h2>[Titel contact en samenwerking]</h2>
           <p>[Uitnodiging tot samenwerking]</p>
         </div>
-        <Button href="/contact/">
+        <Button href={siteUrl('/contact/')}>
           {ui.meet}
         </Button>
       </div>

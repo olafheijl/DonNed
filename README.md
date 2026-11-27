@@ -32,3 +32,11 @@ De logo’s staan in `public/merken/`. De bestandsnamen staan in `src/components
 Plaats de fundusfoto voor de homepage in `public/beelden/`, bijvoorbeeld als `fundus.jpg`. Zet daarna `homeFundusImage` onderaan `src/content/nl.ts` op `'/beelden/fundus.jpg'`. Met een lege waarde toont de hero de bestaande getekende visualisatie. De maat van de foto staat bij `.home-hero-photo` in `src/styles/homepage-hero.css`.
 
 Het contactformulier valideert lokaal en doet geen netwerkverzoek.
+
+## Publiceren op GitHub Pages
+
+1. Kies op GitHub bij **Settings → Pages → Build and deployment → Source** voor **GitHub Actions**.
+2. Merge de wijziging met de Pages-workflow naar `main`. Elke push naar `main` bouwt en publiceert de site. Je kunt de workflow ook handmatig starten vanaf `main` via **Actions → Publiceer DonNed op GitHub Pages**.
+3. Open na een geslaagde uitvoering de website via **Settings → Pages**. Zonder eigen domein is het adres `https://olafheijl.github.io/DonNed/`.
+
+De workflow bouwt de statische HTML, afbeeldingen en scripts in `dist/`. Lokale ontwikkeling blijft werken met `npm run dev`.

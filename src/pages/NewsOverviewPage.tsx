@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import { useState } from 'react';
 import VisualPlaceholder from '../components/VisualPlaceholder';
 import ContactCallout from '../components/ContactCallout';
@@ -27,7 +28,7 @@ export default function NewsOverviewPage() {
             <p>{articles[0].summary}</p>
             <a
               className="text-link"
-              href={`/nieuws-inzichten/${articles[0].slug}/`}
+              href={siteUrl(`/nieuws-inzichten/${articles[0].slug}/`)}
             >
               {ui.more} →
             </a>
