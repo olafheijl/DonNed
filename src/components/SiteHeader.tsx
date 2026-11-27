@@ -1,14 +1,23 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BrandLogo from './BrandLogo';
 import { navigation, ui } from '../content';
 
 export default function SiteHeader({ pathname }: { pathname: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const [compact, setCompact] = useState(false);
+
+  useEffect(() => {
+    const updateLogo = () => setCompact(window.scrollY >= 56);
+    updateLogo();
+    window.addEventListener('scroll', updateLogo, { passive: true });
+    return () => window.removeEventListener('scroll', updateLogo);
+  }, []);
 
   return (
     <header
       className="site-header"
+      data-compact={compact}
       onKeyDown={(event) => {
         if (event.key === 'Escape' && menuOpen) {
           setMenuOpen(false);
@@ -17,11 +26,20 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
       }}
     >
       <div className="header-inner">
-        <a className="brand" href="/" aria-label="DonNed — Home">
-          <BrandLogo />
+        <a className="brand header-brand" href="/" aria-label="DonNed — Home">
+          <span className="header-brand-wordmark" aria-hidden="true">
+            <BrandLogo />
+          </span>
+          <img
+            className="header-brand-mark"
+            src="/merken/Favicon%20DONNED.png"
+            alt=""
+            width={492}
+            height={507}
+          />
         </a>
         <button
-          className="menu-toggle"
+          className="button menu-toggle"
           ref={menuButton}
           type="button"
           aria-expanded={menuOpen}
@@ -36,7 +54,7 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
               path === '/' ? pathname === path : pathname.startsWith(path);
             const classes = [
               active ? 'active' : '',
-              path === '/contact/' ? 'nav-contact' : '',
+              path === '/contact/' ? 'button primary nav-contact' : '',
             ]
               .filter(Boolean)
               .join(' ');
@@ -48,7 +66,7 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
                 className={classes}
                 onClick={() => setMenuOpen(false)}
               >
-                {label}
+                <span>{label}</span>
               </a>
             );
           })}
