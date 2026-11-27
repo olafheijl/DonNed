@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import { useEffect, useRef, useState } from 'react';
 import BrandLogo from './BrandLogo';
 import Button from './Button';
@@ -27,13 +28,13 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
       }}
     >
       <div className="header-inner">
-        <a className="brand header-brand" href="/" aria-label="DonNed — Home">
+        <a className="brand header-brand" href={siteUrl('/')} aria-label="DonNed — Home">
           <span className="header-brand-wordmark" aria-hidden="true">
             <BrandLogo />
           </span>
           <img
             className="header-brand-mark"
-            src="/merken/Favicon%20DONNED.png"
+            src={siteUrl('/merken/Favicon%20DONNED.png')}
             alt=""
             width={492}
             height={507}
@@ -54,7 +55,7 @@ export default function SiteHeader({ pathname }: { pathname: string }) {
             const active =
               path === '/' ? pathname === path : pathname.startsWith(path);
             const linkProps = {
-              href: path,
+              href: siteUrl(path),
               'aria-current': pathname === path ? 'page' as const : undefined,
               onClick: () => setMenuOpen(false),
             };

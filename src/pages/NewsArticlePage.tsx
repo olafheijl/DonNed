@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import PageSection from '../components/PageSection';
 import VisualPlaceholder from '../components/VisualPlaceholder';
 import ArticlePreviewGrid from '../components/ArticlePreviewGrid';
@@ -11,7 +12,7 @@ export default function NewsArticlePage({
   return (
     <>
       <article className="section shell story">
-        <a className="text-link" href="/nieuws-inzichten/">
+        <a className="text-link" href={siteUrl('/nieuws-inzichten/')}>
           ← Naar nieuws & inzichten
         </a>
         <p className="meta">

@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import BrandLogo from './BrandLogo';
 import { navigation, ui } from '../content';
 
@@ -6,14 +7,14 @@ export default function SiteFooter() {
     <footer className="footer">
       <div className="shell footer-grid">
         <div>
-          <a className="brand" href="/" aria-label="DonNed — Home">
+          <a className="brand" href={siteUrl('/')} aria-label="DonNed — Home">
             <BrandLogo />
           </a>
           <p>[Korte bedrijfsomschrijving]</p>
         </div>
         <nav aria-label={ui.footerNav}>
           {navigation.map(([path, label]) => (
-            <a key={path} href={path}>
+            <a key={path} href={siteUrl(path)}>
               {label}
             </a>
           ))}
@@ -30,8 +31,8 @@ export default function SiteFooter() {
       </div>
       <div className="shell footer-base">
         <span>© DonNed</span>
-        <a href="/privacyverklaring/">Privacyverklaring</a>
-        <a href="/cookiebeleid/">Cookiebeleid</a>
+        <a href={siteUrl('/privacyverklaring/')}>Privacyverklaring</a>
+        <a href={siteUrl('/cookiebeleid/')}>Cookiebeleid</a>
       </div>
     </footer>
   );

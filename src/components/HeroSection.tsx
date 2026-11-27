@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import Button from './Button';
 import VisualPlaceholder from './VisualPlaceholder';
 import BrandLogo from './BrandLogo';
@@ -32,7 +33,7 @@ export default function HeroSection({
           <p>{intro}</p>
           {product && (
             <div className="actions">
-              <Button href="/contact/">
+              <Button href={siteUrl('/contact/')}>
                 {ui.meet}
               </Button>
             </div>
@@ -41,7 +42,7 @@ export default function HeroSection({
         {image ? (
           <img
             className="hero-photo"
-            src={image}
+            src={siteUrl(image)}
             alt="Fundusfoto van het netvlies"
           />
         ) : (

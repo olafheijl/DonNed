@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import { useState } from 'react';
 
 export default function BrandLogo({ product = false }: { product?: boolean }) {
@@ -13,7 +14,7 @@ export default function BrandLogo({ product = false }: { product?: boolean }) {
   ) : (
     <img
       className={product ? 'brand-img brand-img--retscan' : 'brand-img'}
-      src={`/merken/${encodeURIComponent(file)}`}
+      src={siteUrl(`/merken/${encodeURIComponent(file)}`)}
       alt={label}
       onError={() => setFailed(true)}
     />

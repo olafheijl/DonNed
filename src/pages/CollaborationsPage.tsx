@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import VisualPlaceholder from '../components/VisualPlaceholder';
 import ContactCallout from '../components/ContactCallout';
 import PageSection from '../components/PageSection';
@@ -34,7 +35,7 @@ export default function CollaborationsPage() {
               </article>
             ))}
           </div>
-          <a className="text-link" href="/contact/">
+          <a className="text-link" href={siteUrl('/contact/')}>
             {ui.collaborate} →
           </a>
         </PageSection>

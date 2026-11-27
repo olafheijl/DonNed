@@ -1,3 +1,4 @@
+import { siteUrl } from '../sitePaths';
 import Button from './Button';
 import VisualPlaceholder from './VisualPlaceholder';
 import { homeFundusImage, ui } from '../content';
@@ -10,8 +11,8 @@ export default function HomePageHero() {
           <h1>Medische AI voor netvliesanalyse</h1>
           <p>Bij DonNed onderzoeken, ontwikkelen en valideren we AI-modellen die netvliesbeelden analyseren. Met RetScan brengen we dat onderzoek samen in technologie voor oogscreening.</p>
           <div className="actions">
-            <Button href="/contact/">{ui.meet}</Button>
-            <a className="text-link" href="/retscan/">{ui.discover}</a>
+            <Button href={siteUrl('/contact/')}>{ui.meet}</Button>
+            <a className="text-link" href={siteUrl('/retscan/')}>{ui.discover}</a>
           </div>
           <p className="home-hero-topic">
             Onderzoek · Medische AI · Klinische validatie
@@ -20,7 +21,7 @@ export default function HomePageHero() {
         {homeFundusImage ? (
           <img
             className="home-hero-photo"
-            src={homeFundusImage}
+            src={siteUrl(homeFundusImage)}
             alt="Fundusfoto van het netvlies"
             width={502}
             height={497}
