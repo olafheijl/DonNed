@@ -32,8 +32,30 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const stack = home.current;
+    const header = document.querySelector('.site-header');
+    if (!stack || !header || !('ResizeObserver' in window)) return;
+
+    const sheets = stack.querySelectorAll(':scope > section:not(:last-child)');
+    const measure = new ResizeObserver((entries) => {
+      for (const { target, borderBoxSize } of entries) {
+        const height = borderBoxSize?.[0]?.blockSize ?? target.getBoundingClientRect().height;
+        if (target === header) {
+          stack.style.setProperty('--sheet-header-height', `${height}px`);
+        } else if (target instanceof HTMLElement) {
+          target.style.setProperty('--sheet-height', `${height}px`);
+        }
+      }
+    });
+
+    measure.observe(header, { box: 'border-box' });
+    sheets.forEach((sheet) => measure.observe(sheet, { box: 'border-box' }));
+    return () => measure.disconnect();
+  }, []);
+
   return (
-    <div ref={home}>
+    <div className="home-sheets" ref={home}>
       <HomePageHero />
       <section className="partner-strip">
         <div className="shell">

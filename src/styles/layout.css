@@ -62,3 +62,26 @@
     }
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-sheets {
+    isolation: isolate;
+  }
+
+  :where(.home-sheets > section) {
+    position: relative;
+    background-color: var(--white);
+  }
+
+  .home-sheets > section:not(:last-child):not(:has(:focus-visible)) {
+    position: sticky;
+    /* Keep the bottom of a tall sheet readable before the next one covers it. */
+    inset-block-start: min(var(--sheet-header-height), calc(100dvh - var(--sheet-height)));
+  }
+
+  .home-sheets > section + section {
+    border-start-start-radius: clamp(0.75rem, 1.7vw, 1.5rem);
+    border-start-end-radius: clamp(0.75rem, 1.7vw, 1.5rem);
+    box-shadow: 0 -0.25rem 0.9rem rgb(16 43 63 / 9%);
+  }
+}
